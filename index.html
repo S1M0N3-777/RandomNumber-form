@@ -8,6 +8,7 @@
 </head>
 <body>
     <form action="">
+        <h1>INDOVINA IL NUMERO MAGICO</h1>
         <input type="number" id="userGuess" >
         <input type="button" id="button" value="submit">
     </form>
@@ -44,6 +45,7 @@
         
         let button = document.querySelector("#button")
         rnd = random(min,max)
+        // Ho inserito degli if perchè non riuscivo ad utulizzare il while, la pagina non caricava
          button.addEventListener("click",function(event){
             if (tent >= tentMax) {
                 console.log("Tentativi esauriti, il numero corretto era "+rnd)
@@ -73,18 +75,6 @@
     }
 
 })
-
-
-
-
-
-        
-
-        
-
-
-
-
 </script>
 </body>
 </html>
