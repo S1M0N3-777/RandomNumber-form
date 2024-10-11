@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="number" id="userGuess" >
+        <input type="button" id="button" value="submit">
+    </form>
+<script>
+    function sanitize(number){
+        let num = number
+        return num.trim()
+    }
+ /*       function generateRandomInteger(min, max) {
+        let casualNumber = Math.random()
+        casualNumber = casualNumber * max
+        casualNumber = parseInt(casualNumber)
+        return casualNumber
+        }*/
+
+    function random(min,max){
+        let n=0
+       // n = Math.random(min,max)*(max-min) In questo modo generiamo un numero compreso tra max e min -1
+       // Per effettuare una generazione corretta: Math.random(min,max)*(max-min+1)
+        n = Math.random(min,max)
+        n=n*(max-min)  
+        n = parseInt(n)+min
+        console.log(n)
+        return n
+        }
+
+    let tent=0 
+    let tentMax = 5
+    let number
+    let min = 1
+    let max = 100
+    let rnd = 0
+    let indovinato = false
+        
+        let button = document.querySelector("#button")
+        rnd = random(min,max)
+         button.addEventListener("click",function(event){
+            if (tent >= tentMax) {
+                console.log("Tentativi esauriti, il numero corretto era "+rnd)
+            }
+
+            number = document.querySelector("#userGuess").value
+            number = parseInt(number)
+            tent += 1
+            if (number < min || number > max || isNaN(number)){
+                console.log("Errore inserimento")
+                
+            }
+            
+        if(number === rnd){
+        console.log("Hai indovinato!");
+        
+    }
+    else {
+        if(number < rnd){
+            console.log("Numero troppo piccolo, riprova")
+        }
+        else{ 
+            if (number > rnd){
+            console.log("Numero troppo grande, riprova")
+        }
+        }
+    }
+
+})
+
+
+
+
+
+        
+
+        
+
+
+
+
+</script>
+</body>
+</html>
